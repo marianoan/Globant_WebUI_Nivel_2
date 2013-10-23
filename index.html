@@ -6,9 +6,10 @@
 	<title>WebUI Nivel 2 Agenda de contactos</title>
 	
 	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
 </head>
@@ -18,7 +19,7 @@
 
 	<header id="header">
 		<hgroup>
-			<h2 class="section_title">Adress Book</h2>
+			<h2 class="section_title">Address Book</h2>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
@@ -35,7 +36,7 @@
 	
 	<section id="main" class="column">
 		
-		<h4 class="alert_info">Alert</h4>
+		<h4 class="alert_info" id="alert">Alert</h4>
 		
         <article class="module width_full" id="contact_list">
             <header>
@@ -52,15 +53,7 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Lorem Ipsum Dolor Sit Amet</td>
-                        <td>Fake St. 123</td>
-                        <td>+54 9 223 54545454</td>
-                        <td>+54 223 54545454</td>
-                        <td>fake@google.com</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                    </tr>
+                <tbody id="contacts_table">
                 </tbody>
             </table>
 
@@ -73,27 +66,29 @@
 		<article class="module width_full" id="new_contact_form">
 			<header><h3>New Contact</h3></header>
 				<div class="module_content">
-					<fieldset>
-						<label>Name</label>
-						<input type="text" id="new_name_input" placeholder="First and last name">
-					</fieldset>
-                    <fieldset>
-                        <label>Address</label>
-                        <input type="text" id="new_address_input" placeholder="Complete address">
-                    </fieldset>
-                    <fieldset>
-                        <label>Mobile phone</label>
-                        <input type="text" id="new_mobile_input" placeholder="Enter the mobile phone number">
-                    </fieldset>
-                    <fieldset>
-                        <label>Phone</label>
-                        <input type="text" id="new_phone_input" placeholder="Enter the phone number">
-                    </fieldset>
-                    <fieldset>
-                        <label>Email</label>
-                        <input type="text" id="new_email_input" placeholder="Enter the email address">
-                    </fieldset>
-                    <div class="clear"></div>
+                    <form id="new_contact_form">
+                        <fieldset>
+                            <label>Name</label>
+                            <input type="text" id="new_name_input" placeholder="First and last name">
+                        </fieldset>
+                        <fieldset>
+                            <label>Address</label>
+                            <input type="text" id="new_address_input" placeholder="Complete address">
+                        </fieldset>
+                        <fieldset>
+                            <label>Mobile phone</label>
+                            <input type="text" id="new_mobile_input" placeholder="Enter the mobile phone number">
+                        </fieldset>
+                        <fieldset>
+                            <label>Phone</label>
+                            <input type="text" id="new_phone_input" placeholder="Enter the phone number">
+                        </fieldset>
+                        <fieldset>
+                            <label>Email</label>
+                            <input type="text" id="new_email_input" placeholder="Enter the email address">
+                        </fieldset>
+                        <div class="clear"></div>
+                    </form>
 				</div>
 			<footer>
 				<div class="submit_link">
@@ -108,5 +103,32 @@
 
 
 </body>
+
+<div id="edit_contact_dialog" title="Edit user">
+        <form id="edit_contact_form">
+            <input type="hidden" id="edit_id_input">
+            <fieldset>
+                <label>Name</label>
+                <input type="text" id="edit_name_input">
+            </fieldset>
+            <fieldset>
+                <label>Address</label>
+                <input type="text" id="edit_address_input">
+            </fieldset>
+            <fieldset>
+                <label>Mobile phone</label>
+                <input type="text" id="edit_mobile_input">
+            </fieldset>
+            <fieldset>
+                <label>Phone</label>
+                <input type="text" id="edit_phone_input">
+            </fieldset>
+            <fieldset>
+                <label>Email</label>
+                <input type="text" id="edit_email_input">
+            </fieldset>
+            <div class="clear"></div>
+        </form>
+</div><!-- end of edit conctact -->
 
 </html>
