@@ -9,39 +9,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() 
-    	{ 
-	    $(".tablesorter").tablesorter();
-
-   	 } 
-	);
-	$(document).ready(function() {
-
-	//When page loads...
-	$(".tab_content").hide(); //Hide all content
-	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content:first").show(); //Show first tab content
-
-	//On Click Event
-	$("ul.tabs li").click(function() {
-
-		$("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content").hide(); //Hide all tab content
-
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
-
-});
-    </script>
-    <script type="text/javascript">
-    $(function(){
-        $('.column').equalHeight();
-    });
-</script>
+    <script type="text/javascript" src="js/script.js"></script>
 
 </head>
 
@@ -60,8 +28,9 @@
 	<aside id="sidebar" class="column">
 		<h3></h3>
 		<ul class="toggle">
-			<li class="icn_new_article"><a href="#">New contact</a></li>
-		</ul>
+            <li class="icn_add_user"><a href="#">New contact</a></li>
+            <li class="icn_view_users"><a href="#">List Contacts</a></li>
+        </ul>
 	</aside><!-- end of sidebar -->
 	
 	<section id="main" class="column">
