@@ -18,7 +18,7 @@
 
 	<header id="header">
 		<hgroup>
-			<h2 class="section_title">Agenda de contactos</h2>
+			<h2 class="section_title">Adress Book</h2>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
@@ -28,8 +28,8 @@
 	<aside id="sidebar" class="column">
 		<h3></h3>
 		<ul class="toggle">
-            <li class="icn_add_user"><a href="#">New contact</a></li>
             <li class="icn_view_users"><a href="#">List Contacts</a></li>
+            <li class="icn_add_user"><a href="#">New contact</a></li>
         </ul>
 	</aside><!-- end of sidebar -->
 	
@@ -37,48 +37,28 @@
 		
 		<h4 class="alert_info">Alert</h4>
 		
-        <article class="module width_full">
+        <article class="module width_full" id="contact_list">
             <header>
-                <h3 class="tabs_involved">Contactos</h3>
+                <h3 class="tabs_involved">Contacts</h3>
             </header>
             <table class="tablesorter" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Adress</th>
-                        <th>Mobile number</th>
+                        <th>Address</th>
+                        <th>Mobile phone</th>
+                        <th>Phone</th>
+                        <th>Email</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Lorem Ipsum Dolor Sit Amet</td>
-                        <td>Articles</td>
-                        <td>5th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                    </tr>
-                    <tr>
-                        <td>Ipsum Lorem Dolor Sit Amet</td>
-                        <td>Freebies</td>
-                        <td>6th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                    </tr>
-                    <tr>
-                        <td>Sit Amet Dolor Ipsum</td>
-                        <td>Tutorials</td>
-                        <td>10th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                    </tr>
-                    <tr>
-                        <td>Dolor Lorem Amet</td>
-                        <td>Articles</td>
-                        <td>16th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                    </tr>
-                    <tr>
-                        <td>Dolor Lorem Amet</td>
-                        <td>Articles</td>
-                        <td>16th April 2011</td>
+                        <td>Fake St. 123</td>
+                        <td>+54 9 223 54545454</td>
+                        <td>+54 223 54545454</td>
+                        <td>fake@google.com</td>
                         <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
                     </tr>
                 </tbody>
@@ -93,34 +73,35 @@
 		<article class="module width_full" id="new_contact_form">
 			<header><h3>New Contact</h3></header>
 				<div class="module_content">
-						<fieldset>
-							<label>Post Title</label>
-							<input type="text">
-						</fieldset>
-						<fieldset>
-							<label>Content</label>
-							<textarea rows="12"></textarea>
-						</fieldset>
-						<fieldset style="width:48%; float:left; margin-right: 3%;"> <!-- to make two field float next to one another, adjust values accordingly -->
-							<label>Category</label>
-							<select style="width:92%;">
-								<option>Articles</option>
-								<option>Tutorials</option>
-								<option>Freebies</option>
-							</select>
-						</fieldset>
-						<fieldset style="width:48%; float:left;"> <!-- to make two field float next to one another, adjust values accordingly -->
-							<label>Tags</label>
-							<input type="text" style="width:92%;">
-						</fieldset><div class="clear"></div>
+					<fieldset>
+						<label>Name</label>
+						<input type="text" id="new_name_input" placeholder="First and last name">
+					</fieldset>
+                    <fieldset>
+                        <label>Address</label>
+                        <input type="text" id="new_address_input" placeholder="Complete address">
+                    </fieldset>
+                    <fieldset>
+                        <label>Mobile phone</label>
+                        <input type="text" id="new_mobile_input" placeholder="Enter the mobile phone number">
+                    </fieldset>
+                    <fieldset>
+                        <label>Phone</label>
+                        <input type="text" id="new_phone_input" placeholder="Enter the phone number">
+                    </fieldset>
+                    <fieldset>
+                        <label>Email</label>
+                        <input type="text" id="new_email_input" placeholder="Enter the email address">
+                    </fieldset>
+                    <div class="clear"></div>
 				</div>
 			<footer>
 				<div class="submit_link">
-					<input type="submit" value="Save" class="alt_btn">
-					<input type="submit" value="Reset">
+					<input type="submit" value="Save" class="alt_btn" id="save_button">
+					<input type="submit" value="Reset" id="reset_button">
 				</div>
 			</footer>
-		</article><!-- end of post new article -->
+		</article><!-- end of new conctact -->
 		
 		<div class="spacer"></div>
 	</section>
