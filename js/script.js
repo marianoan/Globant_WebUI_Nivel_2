@@ -21,11 +21,11 @@ function saveContacts() {
 }
 
 //Fill the table with the contacts 
-function update_table(contacts,table) {
+function update_table(contacts,$table) {
     var i = 0;
-    table.html("");
+    $table.html("");
     forEach(contacts, function () {
-        table.append('<tr><td>' + this.name +
+        $table.append('<tr><td>' + this.name +
             '</td><td>' + this.address +
             '</td><td>' + this.mobile +
             '</td><td>' + this.phone +
