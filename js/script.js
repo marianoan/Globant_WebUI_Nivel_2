@@ -1,13 +1,26 @@
 ﻿var person = Object.create(null);
 var contact_list = [];
 
+
+
 function forEach(list,callback) {
     for (var n = 0; n < list.length; n++) {
         callback.call(list[n]);
     }
 }
 
+//Retrieve contacts from localStorage
+function retrieveContacts() {
+    var retrievedObject = localStorage.getItem('contacts_list');
+    contact_list = JSON.parse(retrievedObject);
+}
 
+//Save contacts to localStorage
+function saveContacts() {
+    localStorage.setItem('contacts_list', JSON.stringify(contact_list));
+}
+
+//Fill the table with the contacts 
 function update_table(contacts,table) {
     var i = 0;
     table.html("");
@@ -23,11 +36,13 @@ function update_table(contacts,table) {
         i++;
     });
 
+    //Function to remove
     $(".remove_contact").on("click", function () {
         contact_list.splice(this.id, 1);
         update_table(contact_list, $("#contacts_table"));
     });
 
+    //Function to edit
     $(".edit_contact").on("click", function () {
         $("#edit_contact_dialog").dialog("open");
         $("#edit_name_input").val(contact_list[this.id].name);
@@ -44,6 +59,9 @@ function reset_form() {
 };
 
 $(document).ready(function () {
+    //First retrieve the contacts from localStorage
+    retrieveContacts();
+    //Set the dialog window to edit
     $("#edit_contact_dialog").dialog({
         autoOpen: false,
         modal: true,
@@ -58,6 +76,7 @@ $(document).ready(function () {
                 contact_list[id].phone = $("#edit_phone_input").val();
                 contact_list[id].email = $("#edit_email_input").val();
                 update_table(contact_list, $("#contacts_table"));
+                saveContacts();
                 $(this).dialog("close");
             },
             Cancel: function () {
@@ -100,7 +119,7 @@ $(document).ready(function () {
         contact.email = $("#new_email_input").val();
 
         contact_list.push(contact);
-
+        saveContacts();
         $("#alert").removeClass("alert_info").addClass("alert_success").html("").html('The contact has been save').show();
         $("#new_contact_form").hide();
         $("#contact_list").show();
