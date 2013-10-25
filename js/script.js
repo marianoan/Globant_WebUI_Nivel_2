@@ -40,6 +40,7 @@ function update_table(contacts,$table) {
     $(".remove_contact").on("click", function () {
         contact_list.splice(this.id, 1);
         update_table(contact_list, $("#contacts_table"));
+        saveContacts();
     });
 
     //Function to edit
