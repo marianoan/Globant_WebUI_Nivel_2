@@ -15,7 +15,10 @@ function forEach(list, callback) {
 //Retrieve contacts from localStorage
 function retrieveContacts() {
     var retrievedObject = localStorage.getItem('contacts_list');
-    contact_list = JSON.parse(retrievedObject);
+    if (retrievedObject !== null) {
+        contact_list = JSON.parse(retrievedObject);
+    }
+    
 }
 
 //Save contacts to localStorage
