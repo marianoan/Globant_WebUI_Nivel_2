@@ -3,10 +3,13 @@ var contact_list = [];
 
 
 
-function forEach(list,callback) {
-    for (var n = 0; n < list.length; n++) {
-        callback.call(list[n]);
+function forEach(list, callback) {
+    if (list !== null) {
+        for (var n = 0; n < list.length; n++) {
+            callback.call(list[n]);
+        }
     }
+    
 }
 
 //Retrieve contacts from localStorage
@@ -88,7 +91,6 @@ $(document).ready(function () {
             
         }
     });
-
     update_table(contact_list, $("#contacts_table"));
     $(".tablesorter").tablesorter();
     $("#contact_list").show();
